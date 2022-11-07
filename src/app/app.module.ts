@@ -17,6 +17,13 @@ import { EditarProductoComponent } from './producto/editar-producto.component';
 //http
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { LoginComponent } from './auth/login.component';
+import { RegistroComponent } from './auth/registro.component';
+import { MenuComponent } from './menu/menu.component';
+import { IndexComponent } from './index/index.component';
+
+//Interceptor Provider
+import { interceptorProvider } from './interceptors/prod-interceptors.service';
 
 
 @NgModule({
@@ -25,7 +32,11 @@ import {FormsModule} from '@angular/forms';
     ListaProductoComponent,
     DetalleProductoComponent,
     NuevoProductoComponent,
-    EditarProductoComponent
+    EditarProductoComponent,
+    LoginComponent,
+    RegistroComponent,
+    MenuComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +46,7 @@ import {FormsModule} from '@angular/forms';
     HttpClientModule,
     FormsModule // ToastrModule added
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

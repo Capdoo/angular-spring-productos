@@ -1,5 +1,4 @@
-<p>detalle-producto works!</p>
-
+<app-menu></app-menu>
 
 <div class="container">
   <div class="row mt-5" *ngIf="producto">
@@ -16,7 +15,10 @@
               <li class="list-group-item"><b>PRECIO: </b>{{producto.precio}} $</li>
             </ul>
             <div class="card-footer">
-              <button class="btn btn-outline-primary btn-block" (click)="volver()"><i class="fa-solid fa-arrow-left"></i>Volver</button>
+              <button class="btn btn-outline-primary btn-block" (click)="volver()">
+                <i class="fa-solid fa-arrow-left"></i>
+                Volver
+              </button>
             </div>
           </div>
     </div>

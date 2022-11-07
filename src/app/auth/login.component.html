@@ -1,0 +1,63 @@
+<app-menu></app-menu>
+
+<div class="text-center" *ngIf="isLogged; else loggedOut">
+
+    <h2>Ya has iniciado sesion</h2>
+
+</div>
+
+<ng-template #loggedOut>
+
+    <div class="conatiner d-flex justify-content-center">
+
+        <div class="card">
+
+            <!-- Para las tabs -->
+            <div class="card-header">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link active" routerLink="/login">Iniciar Sesion</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="/registro">Crear Cuenta</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Para el formulario de Login -->
+            <div class="card-body">
+
+                <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+                    <!-- Para el nombre de usuario -->
+                    <div class="form-group">
+                        <label for="nombreUsuario">Nombre de Usuario</label>
+                        <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control"
+                        [(ngModel)]="nombreUsuario" required>
+                    </div>
+                    <!-- Para la contrasena -->
+                    <div class="form-group">
+                        <label for="nombreUsuario">Constraseña</label>
+                        <input type="password" name="password" id="password" class="form-control"
+                        [(ngModel)]="password" required>
+                    </div>
+
+                    <!-- Para los botones -->
+                    <div class="form-group">
+                        <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                            Iniciar Sesion
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Para el error -->
+                <div  *ngIf="f.submitted && isLoginFail" class="alert alert-danger mt-3">
+                    Fail en el login: {{errMsj}}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</ng-template>

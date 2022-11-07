@@ -1,4 +1,4 @@
-<p>nuevo-producto works!</p>
+<app-menu></app-menu>
 
 <div class="container-mt-3">
 
@@ -20,7 +20,12 @@
                 </div>
 
                 <div class="form-group">
-                    <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Crear</button>
+                    <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                        <i class="fa-solid fa-square-plus"></i>
+                        Crear</button>
+                    <button class="btn btn-outline-primary btn-block" routerLink="/lista">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    Volver</button>
                 </div>
 
             </form>

@@ -37,7 +37,7 @@ export class NuevoProductoComponent implements OnInit {
         this.toastr.error(err.error.mensaje, 'FAIL', {
           timeOut: 3000, positionClass: 'toast-top-center',
         });
-        this.router.navigate(['/']);
+        //this.router.navigate(['/']);
       }
     )
   }
