@@ -10,8 +10,6 @@ import { RegistroComponent } from './auth/registro.component';
 
 import { ProdGuardsService as guard } from './guards/prod-guards.service';
 
-
-
 const routes: Routes = [
 
     { path: '', component: IndexComponent },

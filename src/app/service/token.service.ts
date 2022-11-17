@@ -93,6 +93,7 @@ export class TokenService {
 
   public logOut(): void {
     window.localStorage.clear();
+    window.sessionStorage.clear();
     this.router.navigate(['/']);
   }
 

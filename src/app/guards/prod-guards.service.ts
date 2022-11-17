@@ -6,6 +6,8 @@ import { TokenService } from '../service/token.service';
 @Injectable({
   providedIn: 'root'
 })
+
+// Para el acceso de rutas dentro del front, es necesario tener token y roles
 export class ProdGuardsService implements CanActivate{
 
   //User o Admin
@@ -37,7 +39,4 @@ export class ProdGuardsService implements CanActivate{
     }
 
   }
-
-  
-
 }

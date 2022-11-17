@@ -7,7 +7,7 @@ import { TokenService } from '../service/token.service';
   providedIn: 'root'
 })
 
-//Se coloca en medi ode la peticion http de front y la recepcion en backend
+//Se coloca en medio de la peticion http de front y la recepcion en backend
 //Adjunta las credenciales (token) necesarias
 export class ProdInterceptorsService implements HttpInterceptor{
 
@@ -23,8 +23,6 @@ export class ProdInterceptorsService implements HttpInterceptor{
     }
 
     return next.handle(intReq); 
-
-
     throw new Error('Method not implemented.');
   }
 

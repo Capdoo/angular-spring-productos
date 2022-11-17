@@ -12,7 +12,6 @@ export class AuthService {
   authURL = environment.authURL;
 
   constructor(private httpClient: HttpClient) {
-
   }
 
   public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
