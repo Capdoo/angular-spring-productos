@@ -10,7 +10,7 @@ import { TokenService } from '../service/token.service';
 // Para el acceso de rutas dentro del front, es necesario tener token y roles
 export class ProdGuardsService implements CanActivate{
 
-  //User o Admin
+  //Es el rol real que se tiene como: User o Admin
   realRol: string;
 
   constructor(
@@ -19,24 +19,18 @@ export class ProdGuardsService implements CanActivate{
   ) { }
   
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    
+    //Es el rol que se espera para acceder a la ruta
     const expectedRol = route.data.expectedRol;
-    const roles = this.tokenService.getAuthorities();
 
-    this.realRol = 'user';
-    roles.forEach( rol => {
-      if(rol ==  'ROLE_ADMIN'){
-        this.realRol = 'admin';
-      }
-    });
+    this.realRol = this.tokenService.isAdmin() ? 'admin' : 'user';
 
     //Verifica si el rol esperado es el que yo tengo
     //Verifica si existe un token (primero)
-    if( !this.tokenService.getToken() || expectedRol.indexOf(this.realRol) == -1){
+    if( !this.tokenService.isLogged() || expectedRol.indexOf(this.realRol) < 0){
       this.router.navigate(['/']);
       return false;
-    }else{
-      return true;
     }
-
+    return true;
   }
 }

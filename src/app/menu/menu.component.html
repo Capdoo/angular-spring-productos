@@ -1,11 +1,12 @@
 <nav class="navbar navbar-expand-lg bg-light mb-4">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Productos App</a>
+      <a class="navbar-brand" href="">Productos App</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
 
           <li class="nav-item">
             <a class="nav-link" routerLink="/">
@@ -18,32 +19,25 @@
               <i class="fa-solid fa-list"></i> Lista
             </a>
           </li>
-  
-          <!-- <li class="nav-item">
-            <a class="nav-link" routerLink="/nuevo"> 
-              <i class="fa-solid fa-plus"></i> Nuevo Producto
-            </a>
-          </li> -->
 
-          <!-- Para cerrar sesion e iniciar sesion -->
-
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/login" *ngIf="!isLogged">
-                <i class="fa-solid fa-arrow-right-to-bracket"></i> Iniciar Sesión
+          <!-- Solo mostramos si es administrador -->
+          <li class="nav-item" *ngIf="isAdmin">
+            <a class="nav-link" routerLink="/nuevo">
+              <i class="fa-solid fa-square-plus"></i> Nuevo
             </a>
           </li>
-  
-          <li class="nav-item">
-            <a class="nav-link" *ngIf="isLogged" (click)="onLogOut()"> 
-                <i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar Sesión
-            </a>
-          </li>
- 
+
 
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+
+        <!-- Para cerrar sesion e iniciar sesion -->
+        <form class="form-inline my-2 my-lg-0">
+          <button class="btn btn-outline-success" *ngIf="!isLogged" routerLink="/login">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> Iniciar Sesión</button>
+
+          <button class="btn btn-outline-danger" *ngIf="isLogged" (click)="onLogOut()">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar Sesión
+          </button>
         </form>
       </div>
     </div>

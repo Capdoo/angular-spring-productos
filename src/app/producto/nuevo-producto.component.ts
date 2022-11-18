@@ -39,7 +39,6 @@ export class NuevoProductoComponent implements OnInit {
         });
       }
     )
-    
   }
 
 }

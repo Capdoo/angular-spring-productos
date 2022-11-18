@@ -19,7 +19,6 @@ export class RegistroComponent implements OnInit {
   email: string;
   password: string;
   errMsj: string;
-  isLogged = false;
 
   constructor(
     private tokenService: TokenService,
@@ -29,10 +28,6 @@ export class RegistroComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    //Revisa si estamos logeados
-    if(this.tokenService.getToken()){
-      this.isLogged = true;
-    }
   }
 
   onRegister(): void{
@@ -49,7 +44,6 @@ export class RegistroComponent implements OnInit {
         this.toastr.error(err.error.mensaje, 'FAIL', {
           timeOut: 3000, positionClass: 'toast-top-center',
         });
-        console.log(this.errMsj);
       }
     )
   }

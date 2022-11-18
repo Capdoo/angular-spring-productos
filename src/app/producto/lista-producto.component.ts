@@ -13,7 +13,7 @@ import { TokenService } from '../service/token.service';
 export class ListaProductoComponent implements OnInit {
 
   productos: Producto[] = [];
-  roles: string[];
+  //roles: string[];
 
   isAdmin = false;
 
@@ -25,15 +25,8 @@ export class ListaProductoComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarProductos();
-
-    this.roles = this.tokenService.getAuthorities();
-    console.log("Estos roles vienen de token service");
-    console.log(this.roles);
-    this.roles.forEach( rol => {
-      if(rol == 'ROLE_ADMIN'){
-        this.isAdmin = true;
-      }
-    });
+    this.isAdmin = this.tokenService.isAdmin();
+    
   }
 
   cargarProductos(): void{

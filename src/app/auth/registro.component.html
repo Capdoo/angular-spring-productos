@@ -1,78 +1,66 @@
 <app-menu></app-menu>
 
-<div class="text-center" *ngIf="isLogged; else loggedOut">
+<div class="conatiner d-flex justify-content-center">
 
-    <h2>Ya has iniciado sesion</h2>
+    <div class="card">
+        <!-- Tabs -->
+        <div class="card-header">
 
-</div>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login">Iniciar Sesion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="/registro">Crear Cuenta</a>
+                </li>
+            </ul>
 
-<ng-template #loggedOut>
-
-    <div class="conatiner d-flex justify-content-center">
-
-        <div class="card">
-            <!-- Tabs -->
-            <div class="card-header">
-
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                      <a class="nav-link" routerLink="/login">Iniciar Sesion</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" routerLink="/registro">Crear Cuenta</a>
-                    </li>
-                </ul>
-
-            </div>
-            <!-- Formulario -->
-            <div class="card-body">
-
-                <form #f="ngForm" (ngSubmit)="onRegister()" novalidate>
-
-                    <!-- Para el nombre -->
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" id="nombre" class="form-control"
-                        [(ngModel)]="nombre" required>
-                    </div>
-
-                    <!-- Para el email -->
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email" class="form-control"
-                        [(ngModel)]="email" required>
-                    </div>
-
-
-                    <!-- Para el nombre de usuario -->
-                    <div class="form-group">
-                        <label for="nombreUsuario">Nombre de Usuario</label>
-                        <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control"
-                        [(ngModel)]="nombreUsuario" required>
-                    </div>
-
-
-                    <!-- Para la contrasena -->
-                    <div class="form-group">
-                        <label for="nombreUsuario">Constraseña</label>
-                        <input type="password" name="password" id="password" class="form-control"
-                        [(ngModel)]="password" required>
-                    </div>
-
-                    <!-- Para los botones -->
-                    <div class="form-group">
-                        <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
-                            <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                            Crear cuenta
-                        </button>
-                    </div>
-                </form>
-
-                <!-- Para el error -->
-                <!-- Solo uso toastr -->
-            </div>
         </div>
+        <!-- Formulario -->
+        <div class="card-body">
 
+            <form #f="ngForm" (ngSubmit)="onRegister()" novalidate>
+
+                <!-- Para el nombre -->
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="nombre" required>
+                </div>
+
+                <!-- Para el email -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" class="form-control" [(ngModel)]="email" required>
+                </div>
+
+
+                <!-- Para el nombre de usuario -->
+                <div class="form-group">
+                    <label for="nombreUsuario">Nombre de Usuario</label>
+                    <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control"
+                        [(ngModel)]="nombreUsuario" required>
+                </div>
+
+
+                <!-- Para la contrasena -->
+                <div class="form-group">
+                    <label for="nombreUsuario">Constraseña</label>
+                    <input type="password" name="password" id="password" class="form-control" [(ngModel)]="password"
+                        required>
+                </div>
+
+                <!-- Para los botones -->
+                <div class="form-group">
+                    <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        Crear cuenta
+                    </button>
+                </div>
+            </form>
+
+            <!-- Para el error -->
+            <!-- Solo uso toastr -->
+        </div>
     </div>
 
-</ng-template>
+</div>

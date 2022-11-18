@@ -8,19 +8,20 @@ import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './auth/login.component';
 import { RegistroComponent } from './auth/registro.component';
 
-import { ProdGuardsService as guard } from './guards/prod-guards.service';
+import { ProdGuardsService } from './guards/prod-guards.service';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
 
     { path: '', component: IndexComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'registro', component: RegistroComponent },
+    { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
+    { path: 'registro', component: RegistroComponent, canActivate: [LoginGuard] },
 
-    { path: 'lista', component: ListaProductoComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user'] } },
-    { path: 'detalle/:id', component: DetalleProductoComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user'] } },
+    { path: 'lista', component: ListaProductoComponent, canActivate: [ProdGuardsService], data: { expectedRol: ['admin', 'user'] } },
+    { path: 'detalle/:id', component: DetalleProductoComponent, canActivate: [ProdGuardsService], data: { expectedRol: ['admin', 'user'] } },
 
-    { path: 'nuevo', component: NuevoProductoComponent, canActivate: [guard], data: { expectedRol: ['admin'] } },
-    { path: 'editar/:id', component: EditarProductoComponent, canActivate: [guard], data: { expectedRol: ['admin'] } },
+    { path: 'nuevo', component: NuevoProductoComponent, canActivate: [ProdGuardsService], data: { expectedRol: ['admin'] } },
+    { path: 'editar/:id', component: EditarProductoComponent, canActivate: [ProdGuardsService], data: { expectedRol: ['admin'] } },
     
     { path: '**', redirectTo: '', pathMatch: 'full' }
 
