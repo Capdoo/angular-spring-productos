@@ -32,10 +32,10 @@
 
         <!-- Para cerrar sesion e iniciar sesion -->
         <form class="form-inline my-2 my-lg-0">
-          <button class="btn btn-outline-success" *ngIf="!isLogged" routerLink="/login">
+          <button class="btn btn-outline-success" *ngIf="!isLogged" routerLink="/login" type="submit">
             <i class="fa-solid fa-arrow-right-to-bracket"></i> Iniciar Sesión</button>
 
-          <button class="btn btn-outline-danger" *ngIf="isLogged" (click)="onLogOut()">
+          <button class="btn btn-outline-danger" *ngIf="isLogged" (click)="onLogOut()" type="reset">
             <i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar Sesión
           </button>
         </form>

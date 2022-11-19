@@ -35,7 +35,7 @@ export class ListaProductoComponent implements OnInit {
         this.productos = data;
       },
       err => {
-        console.log(err);
+        console.log("Error lista producto:", err);
       }
     );
   }

@@ -37,17 +37,12 @@
 
                 <!-- Para los botones -->
                 <div class="form-group">
-                    <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                    <button class="btn btn-outline-success btn-block" [disabled]="!f.valid" type="submit">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
                         Iniciar Sesion
                     </button>
                 </div>
             </form>
-
-            <!-- Para el error -->
-            <!-- <div  *ngIf="f.submitted && isLoginFail" class="alert alert-danger mt-3">
-                    Fail en el login: {{errMsj}}
-                </div> -->
 
         </div>
     </div>
