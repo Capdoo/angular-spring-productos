@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  productoURL : "http://localhost:8090/producto/",
-  authURL : 'http://localhost:8090/auth'
+  productoURL : "http://localhost:8090/producto",
+  authURL : 'http://localhost:8090/auth',
+  changePasswordURL : 'http://localhost:8090/email-password'
 };
 
 /*

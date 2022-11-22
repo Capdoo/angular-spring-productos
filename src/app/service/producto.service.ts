@@ -16,33 +16,38 @@ export class ProductoService {
 
   //1. LISTAR
   public lista(): Observable<Producto[]>{
-    return this.httpClient.get<Producto[]>(this.productoURL+'lista');
+    const url = `${this.productoURL}/lista`;
+    return this.httpClient.get<Producto[]>(url);
   }
 
   //2. LISTAR SINGLE POR ID
   public detail(id: number): Observable<Producto>{
-    return this.httpClient.get<Producto>(this.productoURL+`detail/${id}`);
+    const url = `${this.productoURL}/detail/${id}`;
+    return this.httpClient.get<Producto>(url);
   }
 
   //3. LISTAR SINGLE POR NOMBRE
   public detailName(nombre: string): Observable<Producto>{
-    return this.httpClient.get<Producto>(this.productoURL+`detailname/${nombre}`);
+    const url = `${this.productoURL}/detailname/${nombre}`;
+    return this.httpClient.get<Producto>(url);
   }
 
   //4. GUARDAR PRODUCTO
   public save(producto: Producto): Observable<any>{
-    return this.httpClient.post<any>(this.productoURL+'create',producto);
-
+    const url = `${this.productoURL}/create`;
+    return this.httpClient.post<any>(url, producto);
   }
 
   //5. ACTUALIZAR PRODUCTO
   public update(id:number, producto: Producto): Observable<any>{
-    return this.httpClient.put<any>(this.productoURL+`update/${id}`,producto);
+    const url = `${this.productoURL}/update/${id}`;
+    return this.httpClient.put<any>(url, producto);
   }
 
   //6. ELIMINAR PRODUCTO
   public delete(id: number):Observable<any>{
-    return this.httpClient.delete<any>(this.productoURL + `delete/${id}`);
+    const url = `${this.productoURL}/delete/${id}`;
+    return this.httpClient.delete<any>(url);
   }
 }
 

@@ -60,19 +60,6 @@ export class TokenService {
     return true;
   }
 
-  // public getAuthorities(): string[] {
-  //   console.log('From token service');
-  //   this.roles = [];
-  //   if (sessionStorage.getItem(AUTHORITIES_KEY)) {
-  //     const auth_keys = sessionStorage.getItem(AUTHORITIES_KEY);
-  //     console.log(auth_keys);
-  //     JSON.parse(sessionStorage.getItem(AUTHORITIES_KEY)).forEach((authority:any) => {
-  //       this.roles.push(authority.authority);
-  //     });
-  //   }
-  //   return this.roles;
-  // }
-
   public logOut(): void {
     window.localStorage.clear();
     this.router.navigate(['/login']);

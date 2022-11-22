@@ -24,6 +24,8 @@ import { IndexComponent } from './index/index.component';
 
 //Interceptor Provider
 import { interceptorProvider } from './interceptors/prod-interceptors.service';
+import { SendEmailComponent } from './changepassword/send-email.component';
+import { ChangePasswordComponent } from './changepassword/change-password.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { interceptorProvider } from './interceptors/prod-interceptors.service';
     LoginComponent,
     RegistroComponent,
     MenuComponent,
-    IndexComponent
+    IndexComponent,
+    SendEmailComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

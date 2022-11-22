@@ -5,14 +5,15 @@
         <!-- Para las tabs -->
         <div class="card-header">
             <ul class="nav nav-tabs">
+                <!-- Movemos el active en funcion de la pestaña seleccionada -->
                 <li class="nav-item">
-                    <a class="nav-link active" routerLink="/login">Iniciar Sesion</a>
+                    <a class="nav-link" routerLink="/login">Iniciar Sesion</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/registro">Crear Cuenta</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/sendemail">Olvidé mi contraseña</a>
+                    <a class="nav-link active" routerLink="/sendemail">Olvidé mi contraseña</a>
                 </li>
             </ul>
         </div>
@@ -20,25 +21,20 @@
         <!-- Para el formulario de Login -->
         <div class="card-body">
 
-            <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+            <form #f="ngForm" (ngSubmit)="onSendEmail()" novalidate>
                 <!-- Para el nombre de usuario -->
-                <div class="form-group">
-                    <label for="nombreUsuario">Nombre de Usuario Email</label>
-                    <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control"
-                        [(ngModel)]="nombreUsuario" required>
+                <div class="form-group  text-center">
+                    <label class="text-info" for="mailTo">Te enviaremos un correo para recuperar la contraseña</label>
+                    <input type="text" name="mailTo" id="mailTo" class="form-control"
+                        [(ngModel)]="mailTo" placeholder="Nombre de Usuario o Email" required>
                 </div>
                 <!-- Para la contrasena -->
-                <div class="form-group">
-                    <label for="nombreUsuario">Constraseña</label>
-                    <input type="password" name="password" id="password" class="form-control" [(ngModel)]="password"
-                        required>
-                </div>
 
                 <!-- Para los botones -->
                 <div class="form-group">
                     <button class="btn btn-outline-success btn-block" [disabled]="!f.valid" type="submit">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                        Iniciar Sesion
+                        Enviar Correo
                     </button>
                 </div>
             </form>
