@@ -8,11 +8,11 @@ import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './auth/login.component';
 import { RegistroComponent } from './auth/registro.component';
 import { SendEmailComponent } from './changepassword/send-email.component';
+import { ChangePasswordComponent } from './changepassword/change-password.component';
 
 
 import { ProdGuardsService } from './guards/prod-guards.service';
 import { LoginGuard } from './guards/login.guard';
-import { ChangePasswordComponent } from './changepassword/change-password.component';
 
 const routes: Routes = [
 

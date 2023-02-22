@@ -64,5 +64,4 @@ export class TokenService {
     window.localStorage.clear();
     this.router.navigate(['/login']);
   }
-
 }
