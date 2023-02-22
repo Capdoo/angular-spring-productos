@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  productoURL : "http://localhost:8090/producto",
-  authURL : 'http://localhost:8090/auth',
-  changePasswordURL : 'http://localhost:8090/email-password'
+  productoURL : "https://spring-productos-backend-production.up.railway.app/producto",
+  authURL : 'https://spring-productos-backend-production.up.railway.app/auth',
+  changePasswordURL : 'https://spring-productos-backend-production.up.railway.app/email-password'
 };
 
 /*
