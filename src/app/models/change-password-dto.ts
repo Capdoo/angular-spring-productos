@@ -1,4 +1,3 @@
-import { TokenService } from '../service/token.service';
 export class ChangePasswordDTO {
 
     password: string;
